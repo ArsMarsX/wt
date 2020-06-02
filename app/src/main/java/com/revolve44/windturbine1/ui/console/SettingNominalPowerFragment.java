@@ -14,10 +14,14 @@ import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarFinalValueListen
 import com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar;
 import com.revolve44.windturbine1.R;
 
+import static android.content.ContentValues.TAG;
+
 public class SettingNominalPowerFragment extends Fragment {
     // Store instance variables
+    int a = 0;
     private String title;
     private int page;
+    CrystalRangeSeekbar rangeSeekbar;
 
     // newInstance constructor for creating fragment with arguments
     public static SettingNominalPowerFragment newInstance(int page, String title) {
@@ -44,15 +48,32 @@ public class SettingNominalPowerFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragmentlocation_nominalpower, container, false);
         //TextView tvLabel = (TextView) view.findViewById(R.id.tvLabel2);
         //tvLabel.setText(page + " -- " + title);
-
-        // get seekbar from view
-        final CrystalRangeSeekbar rangeSeekbar = (CrystalRangeSeekbar) view.findViewById(R.id.rangeSeekbar1);
-
         // get min and max text view
         final TextView tvMin = (TextView) view.findViewById(R.id.textMin1);
         final TextView tvMax = (TextView) view.findViewById(R.id.textMax1);
-        rangeSeekbar.setMaxValue(30);
-        rangeSeekbar.setMinValue(1);
+        // get seekbar from view
+        rangeSeekbar = (CrystalRangeSeekbar) view.findViewById(R.id.rangeSeekbar1);
+
+        rangeSeekbar.setMinValue(1f);
+        rangeSeekbar.setMaxValue(35f);
+
+        rangeSeekbar.setMinStartValue(3f);
+        rangeSeekbar.setMaxStartValue(20f);
+
+        rangeSeekbar.setMinValue(1)
+                .setMaxValue(24)
+                .setMinStartValue(2)
+                .setMaxStartValue(20)
+                .apply();
+
+        if(a<=1){
+
+            Log.d(TAG, "onCreateView:  set max init "+ a);
+            a++;
+        }
+
+
+
 
         // set listener
         rangeSeekbar.setOnRangeSeekbarChangeListener(new OnRangeSeekbarChangeListener() {
@@ -67,13 +88,16 @@ public class SettingNominalPowerFragment extends Fragment {
         rangeSeekbar.setOnRangeSeekbarFinalValueListener(new OnRangeSeekbarFinalValueListener() {
             @Override
             public void finalValue(Number minValue, Number maxValue) {
-                Log.d("CRS=>", String.valueOf(minValue) + " : " + String.valueOf(maxValue));
+
+               Log.d("CRS=>", String.valueOf(minValue) + " : " + String.valueOf(maxValue));
             }
         });
-        rangeSeekbar.setMaxStartValue(10);
-        rangeSeekbar.setMinStartValue(1);
+
+
 
         return view;
     }
+
+
 
 }

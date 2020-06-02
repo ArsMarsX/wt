@@ -55,7 +55,7 @@ public class DashboardFragment extends Fragment {
         final TextView tvMin = (TextView) root.findViewById(R.id.textMin1);
         final TextView tvMax = (TextView) root.findViewById(R.id.textMax1);
         vvv = root.findViewById(R.id.count);
-        final CrystalRangeSeekbar rangeSeekbar = (CrystalRangeSeekbar) root.findViewById(R.id.rangeSeekbar1);
+        //final CrystalRangeSeekbar rangeSeekbar = (CrystalRangeSeekbar) root.findViewById(R.id.rangeSeekbar1);
 
         mExampleList = new ArrayList<>();
         mExampleList.add(new DashboardItem(R.drawable.ic_keyboard_arrow_right_black, "My Wind Turbine"));

@@ -31,7 +31,6 @@
             app:right_thumb_color="#F0F5FF"
             app:left_thumb_color_pressed="#A5BDED"
             app:right_thumb_color_pressed="#A5BDED"
-
             app:bar_color="#8BA0AA"
             app:bar_highlight_color="#035BF4"
              />
